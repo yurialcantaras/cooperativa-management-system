@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class BookStock extends Model
+class BookStockModel extends Model
 {
-    protected $table            = 'book_stocks';
+    protected $table            = 'book_stock';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['book_name', 'quantity', 'arrived_date', 'purchase_date',];
+    protected $allowedFields    = ['type', 'book_name', 'quantity', 'arrived_date',];
 
     // Dates
     protected $useTimestamps = false;
@@ -24,10 +24,10 @@ class BookStock extends Model
     // Validation
     protected $validationRules      = [
 
+        'type'          => 'required|exact_length[1]|is_natural',
         'book_name'     => 'required|max_length[255]|alpha_numeric_space|min_length[3]',
         'quantity'      => 'required|max_length[20]',
-        'arrived_date'  => 'required|valid_date[Y/m/d]',
-        'purchase_date' => 'required|valid_date[Y/m/d]',
+        'arrived_date'  => 'required|valid_date[Y-m-d]',
 
     ];
     protected $validationMessages   = [];

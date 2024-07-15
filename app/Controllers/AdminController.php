@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Administrators;
+use App\Models\AdministratorsModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class AdminController extends BaseController
@@ -12,7 +13,7 @@ class AdminController extends BaseController
     public function newManager()
     {
 
-        $admin = new Administrators();
+        $admin = new AdministratorsModel();
         $data = $this->request->getPost();
         $data['id'] = $this->newId();
         $data['level'] = 1;
@@ -34,7 +35,7 @@ class AdminController extends BaseController
     public function login()
     {
 
-        $admin = new Administrators();
+        $admin = new AdministratorsModel();
         $data = $this->request->getPost();
 
         $query = $admin->where('email', $data['email'])
@@ -61,7 +62,7 @@ class AdminController extends BaseController
     public function newId()
     {
 
-        $admin = new Administrators();
+        $admin = new AdministratorsModel();
 
         if ($admin) {
 

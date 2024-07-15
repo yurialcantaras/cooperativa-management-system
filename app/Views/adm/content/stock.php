@@ -107,36 +107,33 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="">
+            <form method="post" action="<?= base_url('/bookstockcontroller/newtitle') ?>">
                 <div class="card-body">
                     <div class="form-check d-flex justify-content-center">
                         <div class="col-sm-3"></div>
                         <div class="justify-content-center form-check form-check-inline col-sm-3 bg-olive p-2">
-                            <input value="kit" type="radio" name="title-type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;">
+                            <input value="1" type="radio" name="type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>
                             <label for="kit-type" class="form-check-label">Kit</label>
                         </div>
                         <div class="justify-content-center form-check form-check-inline col-sm-3 bg-info p-2">
-                            <input value="book" type="radio" name="title-type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;">
+                            <input value="0" type="radio" name="type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;" require>
                             <label for="book-type" class="form-check-label">Livro</label>
                         </div>
                         <div class="col-sm-3"></div>
                     </div>
                     <div class="form-group">
                         <label for="book-name">Título</label>
-                        <input type="text" class="form-control" id="book-name" placeholder="Informe o nome do título">
+                        <input name="book_name" type="text" class="form-control" id="book-name" placeholder="Informe o nome do título" require>
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantidade</label>
-                        <input type="number" class="form-control" id="quantity" placeholder="Apenas o número">
+                        <input name="quantity" type="number" class="form-control" id="quantity" placeholder="Apenas o número" require>
                     </div>
                     <!-- Date -->
                     <div class="form-group">
                         <label>Data de Chegada:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="dd/mm/aaaa" />
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
+                            <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require/>
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">
