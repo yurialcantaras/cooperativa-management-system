@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Administrators;
 use App\Models\AdministratorsModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Controllers\BookStockController;
 
 class AdminController extends BaseController
 {

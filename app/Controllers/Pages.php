@@ -35,6 +35,7 @@ class Pages extends BaseController
 
         $structure['banner'] = view('adm/header/adm.header.php');
         $structure['footer'] = view('adm/footer/adm.footer.php');
+
         return view('adm/content/stock', $structure);
     }
 

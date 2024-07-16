@@ -30,4 +30,14 @@ class BookStockController extends BaseController
         return redirect()->to(base_url('/pages/stock'));
 
     }
+
+    public function listTitles()
+    {
+
+        $connect = new BookStockModel();
+        $data = $connect->findAll();
+
+        return $data;
+
+    }
 }
