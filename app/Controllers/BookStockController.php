@@ -40,4 +40,12 @@ class BookStockController extends BaseController
         return $data;
 
     }
+
+    public function listStock()
+    {
+        
+        $connect = new BookStockModel();
+
+
+    }
 }
