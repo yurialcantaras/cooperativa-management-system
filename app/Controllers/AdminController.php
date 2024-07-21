@@ -58,6 +58,8 @@ class AdminController extends BaseController
 
     public function logout()
     {
+        session()->destroy();
+        return redirect()->to(base_url('/'));
     }
 
     public function newId()

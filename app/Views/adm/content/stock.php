@@ -54,12 +54,13 @@
                                             <td>". $title['type'] ."</td>
                                             <td>". $title['quantity'] ."</td>
                                             <td>". $title['arrived_date'] ."</td>
-                                            <td class='obs-in-table'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+                                            <td class='obs-in-table'>". $title['observation'] ."</td>
                                         </tr>
                                         
                                         ";
 
                                     }
+
                                     ?>
                                     </tfoot>
                             </table>
@@ -110,6 +111,12 @@
                         <label>Data de Chegada:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Observação</label>
+                        <div class="input-group">
+                            <input name="observation" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)"/>
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">

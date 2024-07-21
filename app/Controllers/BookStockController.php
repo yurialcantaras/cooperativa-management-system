@@ -19,18 +19,21 @@ class BookStockController extends BaseController
         
         $connect = new BookStockModel();
         $data = $this->request->getPost();
-        $admin = new AdminController();
 
+        if ($data['observation'] === "") $data['observation'] = " ";
+
+        $admin = new AdminController();
         $data['id'] = $admin->newId();
         $inserted = $connect->insert($data);
 
         if (!$inserted) {
 
             var_dump($connect->errors());
-            exit;
-            // return redirect()->to(base_url('/pages/stock'));
+            exit; // Tratar mensagem de erro
         
         }
+
+        session()->set('stocklist', NULL);
 
         return redirect()->to(base_url('/pages/stock'));
 
@@ -39,20 +42,13 @@ class BookStockController extends BaseController
     public function titlelist()
     {
 
-        // Usar session para encaminhar dados e usar view com variavel em parametro para enviar dados para pagina stock
-
         $session = session();
+        $session->set('stocklist', '');
         $data = $session->get('stocklist');
-
-        if (isset($data)) {
-            
-            $session->set('stocklist', '');
-
-        }
 
         $connect = new BookStockModel();
         $data = $connect->findAll();
-        
+
         $session->set('stocklist', $data);
 
         return redirect()->to(base_url('/pages/stock'));
