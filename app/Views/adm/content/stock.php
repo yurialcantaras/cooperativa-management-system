@@ -50,10 +50,10 @@
                                         echo "
                                         
                                         <tr>
-                                            <td><a href=".base_url('/pages/title')." >". $title['book_name'] ."</a></td>
-                                            <td>". $title['type'] ."</td>
-                                            <td>". $title['quantity'] ."</td>
-                                            <td>". $title['arrived_date'] ."</td>
+                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['book_name'] ."</a></td>
+                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['type'] ."</td>
+                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['quantity'] ."</td>
+                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['arrived_date'] ."</td>
                                             <td class='obs-in-table'>". $title['observation'] ."</td>
                                         </tr>
                                         

@@ -21,6 +21,9 @@
             <div class="row justify-content-center">
                 <div class="col-10 title-table">
                     <div class="card card-body p-0">
+
+                        <?php var_dump($titleDetails); ?>
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

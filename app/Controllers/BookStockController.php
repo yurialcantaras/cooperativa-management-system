@@ -39,7 +39,7 @@ class BookStockController extends BaseController
 
     }
 
-    public function titlelist()
+    public function titleList()
     {
 
         $session = session();
@@ -52,6 +52,41 @@ class BookStockController extends BaseController
         $session->set('stocklist', $data);
 
         return redirect()->to(base_url('/pages/stock'));
+
+    }
+
+    public function titleDetail()
+    {
+        $session = session();
+        $session->set('isDetail', null);
+
+        $request = service('request');
+        $id = $request->getGet('id');
+
+        $connect = new BookStockModel();
+        $details = $connect->where('id', $id)->first();
+
+        // Fazer correção de bug quando vizualiza outro produto
+
+        if ($details == null) {
+            
+            $session->set('isDetail', null);
+            echo "Título não encontrado";
+            exit;
+            
+        }
+        
+        $session->set('isDetail', $id);
+        $session->set('titledetails', $details);
+
+        return redirect()->to(base_url('/pages/title/'));
+
+    }
+
+    public function titleDelete()
+    {
+
+
 
     }
 }
