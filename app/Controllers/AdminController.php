@@ -63,6 +63,8 @@ class AdminController extends BaseController
     public function newId()
     {
 
+        // Criar um helper para a funcao newId
+
         $admin = new AdministratorsModel();
 
         if ($admin) {

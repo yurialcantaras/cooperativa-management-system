@@ -9,6 +9,11 @@ use App\Controllers\AdminController;
 
 class BookStockController extends BaseController
 {
+    public function __construct()
+    {
+        
+    }
+
     public function newTitle()
     {
         
@@ -31,21 +36,26 @@ class BookStockController extends BaseController
 
     }
 
-    public function listTitles()
+    public function titlelist()
     {
+
+        // Usar session para encaminhar dados e usar view com variavel em parametro para enviar dados para pagina stock
+
+        $session = session();
+        $data = $session->get('stocklist');
+
+        if (isset($data)) {
+            
+            $session->set('stocklist', '');
+
+        }
 
         $connect = new BookStockModel();
         $data = $connect->findAll();
-
-        return $data;
-
-    }
-
-    public function listStock()
-    {
         
-        $connect = new BookStockModel();
+        $session->set('stocklist', $data);
 
+        return redirect()->to(base_url('/pages/stock'));
 
     }
 }

@@ -33,10 +33,21 @@ class Pages extends BaseController
     public function stock()
     {
 
+        $data = session()->get('stocklist');
+        
+        if (!isset($data)) {
+            
+            return redirect()->to(base_url('/bookstockcontroller/titlelist'));
+
+        }
+
         $structure['banner'] = view('adm/header/adm.header.php');
         $structure['footer'] = view('adm/footer/adm.footer.php');
+        $structure['stocklist'] = $data;
 
         return view('adm/content/stock', $structure);
+
+
     }
 
     public function title()
