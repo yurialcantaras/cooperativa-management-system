@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\BookStockModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Controllers\AdminController;
+use DateTime;
 
 class BookStockController extends BaseController
 {
@@ -63,10 +64,19 @@ class BookStockController extends BaseController
         $request = service('request');
         $id = $request->getGet('id');
 
+        
         $connect = new BookStockModel();
         $details = $connect->where('id', $id)->first();
 
-        // Fazer correção de bug quando vizualiza outro produto
+
+        ######## Processing Data ########
+        
+        // Book type
+        $details['type'] = ($details['type'] == 1) ? "Kit" : "Livro";
+
+        // Arrived Date
+        $dateFormat = new DateTime($details['arrived_date']);
+        $details['arrived_date'] = $dateFormat->format('d/m/Y');
 
         if ($details == null) {
             
@@ -77,9 +87,9 @@ class BookStockController extends BaseController
         }
         
         $session->set('isDetail', $id);
-        $session->set('titledetails', $details);
+        $session->set('titleDetails', $details);
 
-        return redirect()->to(base_url('/pages/title/'));
+        return redirect()->to(base_url('/pages/title?id='.$id));
 
     }
 

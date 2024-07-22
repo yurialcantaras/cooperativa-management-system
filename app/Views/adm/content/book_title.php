@@ -21,32 +21,29 @@
             <div class="row justify-content-center">
                 <div class="col-10 title-table">
                     <div class="card card-body p-0">
-
-                        <?php var_dump($titleDetails); ?>
-
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th style="text-align: end;" class="col-3">Nome do Título</th>
-                                    <th>A volta dos que não foram e para lá nunca voltaram</th>
+                                    <th><?php echo $titleDetails['book_name']; ?></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td style="text-align: end;">Tipo</td>
-                                    <td>Kit</td>
+                                    <td><?php echo $titleDetails['type']; ?></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: end;">Quantidade</td>
-                                    <td>23</td>
+                                    <td><?php echo $titleDetails['quantity']; ?></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: end;">Data de Chegada</td>
-                                    <td>25/05/2024</td>
+                                    <td><?php echo $titleDetails['arrived_date']; ?></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: end;">Observação</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+                                    <td><?php echo $titleDetails['observation']; ?></td>
                                 </tr>
                             </tbody>
                         </table>

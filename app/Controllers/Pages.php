@@ -52,20 +52,21 @@ class Pages extends BaseController
     public function title()
     {
         $request = service('request');
-        $structure['titleId'] = $request->getGet('id');
-
+        $structure['id'] = $request->getGet('id');
+        
         $session = session();
         $isDetail = $session->get('isDetail');
+
+        if (!isset($isDetail)) {
         
-        if ($isDetail != $structure['titleId']) {
-        
-            return redirect()->to(base_url('/bookstockcontroller/titledetail?id=' . $structure['titleId']));
+            return redirect()->to(base_url('/bookstockcontroller/titledetail?id=' . $structure['id']));
         
         }
 
         $structure['banner'] = view('adm/header/adm.header.php');
         $structure['footer'] = view('adm/footer/adm.footer.php');
         $structure['titleDetails'] = $session->get('titleDetails');
+        $session->set('isDetail', null);
         return view('adm/content/book_title', $structure);
     }
 }
