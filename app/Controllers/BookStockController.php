@@ -10,46 +10,14 @@ use DateTime;
 
 class BookStockController extends BaseController
 {
-    public function __construct()
-    {
-        
-    }
-
-    public function newTitle()
-    {
-        
-        $connect = new BookStockModel();
-        $data = $this->request->getPost();
-
-        if ($data['observation'] === "") $data['observation'] = " ";
-
-        $admin = new AdminController();
-        $data['id'] = $admin->newId();
-        $inserted = $connect->insert($data);
-
-        if (!$inserted) {
-
-            var_dump($connect->errors());
-            exit; // Tratar mensagem de erro
-        
-        }
-
-        session()->set('stocklist', NULL);
-
-        return redirect()->to(base_url('/pages/stock'));
-
-    }
 
     public function titleList()
     {
 
-        $session = session();
-        $session->set('stocklist', '');
-        $data = $session->get('stocklist');
-
         $connect = new BookStockModel();
-        $data = $connect->findAll();
+        $data = $connect->orderBy('book_name')->findAll();
 
+        $session = session();
         $session->set('stocklist', $data);
 
         return redirect()->to(base_url('/pages/stock'));
@@ -61,9 +29,7 @@ class BookStockController extends BaseController
         $session = session();
         $session->set('isDetail', null);
 
-        $request = service('request');
-        $id = $request->getGet('id');
-
+        $id = $this->request->getGet('id');
         
         $connect = new BookStockModel();
         $details = $connect->where('id', $id)->first();
@@ -93,10 +59,60 @@ class BookStockController extends BaseController
 
     }
 
+    public function newTitle()
+    {
+        
+        $connect = new BookStockModel();
+        $data = $this->request->getPost();
+
+        if ($data['observation'] === "") $data['observation'] = " ";
+
+        $admin = new AdminController();
+        $data['id'] = $admin->newId(); // Create a service
+        $inserted = $connect->insert($data);
+
+        if (!$inserted) {
+
+            var_dump($connect->errors());
+            exit; // Tratar mensagem de erro
+        
+        }
+
+        session()->set('stocklist', NULL);
+
+        return redirect()->to(base_url('/pages/stock'));
+
+    }
+
+    public function titleEdit()
+    {
+
+        $data = $this->request->getPost();
+        $id = $this->request->getGet('id');
+
+        ####### Processing Data #######
+        // Arrived Date
+        $dateFormat = new DateTime($data['arrived_date']);
+        $data['arrived_date'] = $dateFormat->format('Y-m-d');
+
+        // Observation Field
+        if ($data['observation'] === "") $data['observation'] = " ";
+        
+        $connect = new BookStockModel();
+        $connect->update($id, $data);
+
+        return redirect()->to(base_url('/pages/title?id='.$id));
+
+    }
+
     public function titleDelete()
     {
 
-
+        $id = $this->request->getGet('id');
+        $connect = new BookStockModel();
+        $connect->delete($id);
+        
+        return redirect()->to(base_url('/pages/stock'));
 
     }
 }

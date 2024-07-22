@@ -47,6 +47,9 @@
                                     
                                     foreach ($stocklist as $title) {
                                         
+                                        $formatDate = new DateTime($title['arrived_date']);
+                                        $title['arrived_date'] = $formatDate->format('d/m/Y');
+
                                         echo "
                                         
                                         <tr>

@@ -45,14 +45,14 @@ class Pages extends BaseController
         $structure['footer'] = view('adm/footer/adm.footer.php');
         $structure['stocklist'] = $data;
 
+        session()->set('stocklist', null);
         return view('adm/content/stock', $structure);
 
     }
 
     public function title()
     {
-        $request = service('request');
-        $structure['id'] = $request->getGet('id');
+        $structure['id'] = $this->request->getGet('id');
         
         $session = session();
         $isDetail = $session->get('isDetail');
