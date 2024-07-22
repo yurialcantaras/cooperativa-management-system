@@ -42,7 +42,7 @@ class BookStockController extends BaseController
 
         // Arrived Date
         $dateFormat = new DateTime($details['arrived_date']);
-        $details['arrived_date'] = $dateFormat->format('d/m/Y');
+        $details['arrived_date'] = $dateFormat->format('d-m-Y');
 
         if ($details == null) {
             

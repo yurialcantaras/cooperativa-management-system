@@ -85,9 +85,9 @@
                             </div>
                             <!-- Date -->
                             <div class="form-group">
-                                <label>Date de Chegada:</label>
+                                <label>Date de Chegada</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input name="arrived_date" type="text" class="form-control datetimepicker-input" value="<?php echo $titleDetails['arrived_date']; ?>" data-target="#reservationdate" placeholder="dd/mm/aaaa" require/>
+                                    <input id="data" name="arrived_date" type="text" class="form-control datetimepicker-input" value="<?php echo $titleDetails['arrived_date']; ?>" data-target="#reservationdate" require/>
                                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label>Observação</label>
                                 <div class="input-group">
-                                    <input name="observation" type="text" class="form-control" value="<?php echo $titleDetails['observation']; ?>" placeholder="Pequena observação (Não obrigatório)" require/>
+                                    <input name="observation" type="text" class="form-control" value="<?php echo $titleDetails['observation']; ?>" placeholder="Pequena observação (Não obrigatório)"/>
                                 </div>
                             </div>
                             <div class="form-group d-flex justify-content-center">

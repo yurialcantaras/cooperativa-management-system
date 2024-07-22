@@ -48,7 +48,7 @@
                                     foreach ($stocklist as $title) {
                                         
                                         $formatDate = new DateTime($title['arrived_date']);
-                                        $title['arrived_date'] = $formatDate->format('d/m/Y');
+                                        $title['arrived_date'] = $formatDate->format('d-m-Y');
 
                                         echo "
                                         
@@ -111,7 +111,7 @@
                     </div>
                     <!-- Date -->
                     <div class="form-group">
-                        <label>Data de Chegada:</label>
+                        <label>Data de Chegada</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require/>
                         </div>

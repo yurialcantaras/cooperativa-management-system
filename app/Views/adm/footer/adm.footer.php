@@ -6,10 +6,26 @@
 <script src="<?= base_url('tema/plugins/chart.js/Chart.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('tema/dist/js/adminlte.min.js') ?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= base_url('tema/dist/js/demo.js') ?>"></script>
 <!-- Page specific script -->
 <script>
+
+  document.getElementById('data').addEventListener('input', function (e) {
+      var input = e.target.value.replace(/[^0-9]/g, ''); // Remove caracteres não numéricos
+      var formattedInput = '';
+      
+      if (input.length > 0) {
+          formattedInput += input.substring(0, 2); // Adiciona os dois primeiros dígitos
+          if (input.length > 2) {
+              formattedInput += '-' + input.substring(2, 4); // Adiciona os próximos dois dígitos e um traço
+              if (input.length > 4) {
+                  formattedInput += '-' + input.substring(4, 8); // Adiciona os últimos quatro dígitos e um traço
+              }
+          }
+      }
+
+      e.target.value = formattedInput;
+  });
+
   function newTitle() {
 
     document.getElementById('new-title').style.display = 'block';
