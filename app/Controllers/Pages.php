@@ -69,4 +69,13 @@ class Pages extends BaseController
         $session->set('isDetail', null);
         return view('adm/content/book_title', $structure);
     }
+
+    public function relatorio()
+    {
+
+        $structure['banner'] = view('adm/header/relatorio.header.php');
+        $structure['footer'] = view('adm/footer/adm.footer.php');
+        return view('adm/content/relatorio', $structure);
+
+    }
 }
