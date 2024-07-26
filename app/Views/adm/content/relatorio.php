@@ -28,27 +28,48 @@
                 <div class="form-group">
                     <label>Data da Colportagem</label>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input id="data" name="colportagem_date" type="text" class="form-control datetimepicker-input" value="" data-target="#reservationdate" require/>
+                        <input id="date" name="colportagem_date" type="text" class="form-control datetimepicker-input" value="" data-target="#reservationdate" require/>
                         <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div>
                 </div>
-                <hr style="margin-top: 40px; margin-bottom: 30px; border-width: 2px;">
+                <hr style="margin-top: 30px; margin-bottom: 20px; border-width: 2px;">
                 <div class="d-flex justify-content-center form-group">
-                    <h4>Financeiro</h4>
+                    <h3>Financeiro</h3>
                 </div>
                 <div class="form-group">
                     <label for="cash">Em dinheiro:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o valor" step="0.01" require>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                        </div>
+                        <input name="cash" type="number" class="form-control" value="0.00" placeholder="Apenas o valor" step="0.01" require>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="pix">PIX:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o valor" step="0.01" require>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                        </div>
+                        <input name="pix" type="number" class="form-control" value="0.00" placeholder="Apenas o valor" step="0.01" require>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="card">Cartão:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o valor" step="0.01" require>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                        </div>
+                        <input name="card" type="number" class="form-control" value="0.00" placeholder="Apenas o valor" step="0.01" require>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Observação</label>

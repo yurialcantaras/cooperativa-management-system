@@ -87,7 +87,7 @@
                             <div class="form-group">
                                 <label>Date de Chegada</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input id="data" name="arrived_date" type="text" class="form-control datetimepicker-input" value="<?php echo $titleDetails['arrived_date']; ?>" data-target="#reservationdate" require/>
+                                    <input id="date" name="arrived_date" type="text" class="form-control datetimepicker-input" value="<?php echo $titleDetails['arrived_date']; ?>" data-target="#reservationdate" require/>
                                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>

@@ -8,8 +8,7 @@
 <script src="<?= base_url('tema/dist/js/adminlte.min.js') ?>"></script>
 <!-- Page specific script -->
 <script>
-
-  document.getElementById('data').addEventListener('input', function (e) {
+  document.getElementById('date').addEventListener('input', function (e) {
       var input = e.target.value.replace(/[^0-9]/g, ''); // Remove caracteres não numéricos
       var formattedInput = '';
       
@@ -24,6 +23,19 @@
       }
 
       e.target.value = formattedInput;
+  });
+
+  window.addEventListener('load', function () {
+    var today = new Date();
+    var day = String(today.getDate()).padStart(2, '0');
+    var month = String(today.getMonth() + 1).padStart(2, '0');
+    var year = today.getFullYear();
+
+    var formattedDate = day + '-' + month + '-' + year;
+    var dateInput = document.querySelector('input[name="colportagem_date"]');
+    if (dateInput) {
+        dateInput.value = formattedDate;
+    }
   });
 
   function newTitle() {
