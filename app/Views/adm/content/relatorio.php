@@ -1,13 +1,13 @@
 <?php echo $banner; ?>
 
-<div class="d-flex justify-content-center col-12" style="margin-top: 50px;">
+<div class="d-flex justify-content-center col-12" style="margin-top: 50px; margin-bottom: 50px">
     <h1>Relatório de Colportagem</h1>
 </div>
 
-<div class="d-flex justify-content-center col-12">
+<div class="d-flex justify-content-center">
 
     <div id="new-title" class="card title-description col-7">
-        <form method="post" action="">
+        <form method="post" action="<?php base_url('/colportagemReport/newReport') ?>">
             <div class="card-body">
                 <div class="form-group">
                     <label for="colportor">Colportor</label>
@@ -15,15 +15,15 @@
                 </div>
                 <div class="form-group">
                     <label for="kit">Kits:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
+                    <input name="kit_qty" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
                 </div>
                 <div class="form-group">
                     <label for="livros">Livros:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
+                    <input name="book_qty" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
                 </div>
                 <div class="form-group">
                     <label for="javs">JAVs:</label>
-                    <input name="kit" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
+                    <input name="jav_qty" type="number" class="form-control" value="0" placeholder="Apenas o número" require>
                 </div>
                 <div class="form-group">
                     <label>Data da Colportagem</label>

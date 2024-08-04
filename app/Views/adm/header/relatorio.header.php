@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="<?= base_url('/tema/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('tema/dist/css/adminlte.min.css') ?>">
+  <style>
+    #new-title{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
