@@ -14,19 +14,27 @@ class AdminController extends BaseController
     public function newManager()
     {
 
-        $admin = new AdministratorsModel();
-        $data = $this->request->getPost();
-        $data['id'] = $this->newId();
-        $data['level'] = 1;
+        session_start();
 
-        $inserted = $admin->insert($data);
+        if ($_SESSION['user'] == "c28ada0f-6dbe-11ef-af54-4c2f0690c31f") {
+            
+            $admin = new AdministratorsModel();
+            $data = $this->request->getPost();
+            $data['id'] = $this->newId();
+            $data['level'] = 1;
 
-        if (!$inserted) {
+            $inserted = $admin->insert($data);
 
-            var_dump($admin->errors());
+            if (!$inserted) {
+
+                var_dump($admin->errors());
+
+            }
+
+            return redirect()->to(base_url('/pages/dashboard'));
+
         }
 
-        return redirect()->to(base_url('/'));
     }
 
     public function deleteManager()
