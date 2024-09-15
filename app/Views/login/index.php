@@ -1,4 +1,9 @@
+<?php
 
+// redirect(base_url(''));
+// exit;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +37,7 @@
                     <p class="login-box-msg">Acesse sua conta para continuar</p>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('/AdminController/login'); ?>" method="post">
+                <form action="<?php echo base_url('/AdminController/login?'); ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Digite seu email" name="email">
                         <div class="input-group-append">
@@ -57,7 +62,7 @@
                     </div>
                 </form>
                 <p class="mb-0">
-                    <a href="<?php echo base_url('/pages/signin'); ?>" class="text-center">Register a new membership</a>
+                    <a href="<?php echo base_url('/pages/signin?'); ?>" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.card-body -->

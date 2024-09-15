@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'dev',
-        'password'     => '1013',
+        'username'     => 'root',
+        'password'     => '',
         'database'     => 'cooperativa_db',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

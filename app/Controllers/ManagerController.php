@@ -9,7 +9,9 @@ class ManagerController extends BaseController
 {
     public function newColportor()
     {
-        // 
+        
+        
+
     }
 
     public function deleteColportor(){

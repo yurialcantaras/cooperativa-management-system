@@ -54,7 +54,7 @@
                                         
                                         <tr>
                                             <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['book_name'] ."</a></td>
-                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['type'] ."</td>
+                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['book_type'] ."</td>
                                             <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['quantity'] ."</td>
                                             <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['arrived_date'] ."</td>
                                             <td class='obs-in-table'>". $title['observation'] ."</td>
@@ -65,7 +65,7 @@
                                     }
 
                                     ?>
-                                    </tfoot>
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
@@ -92,11 +92,11 @@
                     <div class="form-check d-flex justify-content-center">
                         <div class="col-sm-3"></div>
                         <div class="justify-content-center form-check form-check-inline col-sm-3 bg-olive p-2">
-                            <input value="1" type="radio" name="type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>
+                            <input value="1" type="radio" name="book_type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>
                             <label for="kit-type" class="form-check-label">Kit</label>
                         </div>
                         <div class="justify-content-center form-check form-check-inline col-sm-3 bg-info p-2">
-                            <input value="0" type="radio" name="type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;" require>
+                            <input value="0" type="radio" name="book_type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;" require>
                             <label for="book-type" class="form-check-label">Livro</label>
                         </div>
                         <div class="col-sm-3"></div>

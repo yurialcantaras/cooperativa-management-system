@@ -38,7 +38,7 @@ class BookStockController extends BaseController
         ######## Processing Data ########
         
         // Book type
-        $details['type'] = ($details['type'] == 1) ? "Kit" : "Livro";
+        $details['book_type'] = ($details['book_type'] == 1) ? "Kit" : "Livro";
 
         // Arrived Date
         $dateFormat = new DateTime($details['arrived_date']);

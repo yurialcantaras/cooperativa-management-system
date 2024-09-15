@@ -31,7 +31,7 @@
                             <tbody>
                                 <tr>
                                     <td style="text-align: end;">Tipo</td>
-                                    <td><?php echo $titleDetails['type']; ?></td>
+                                    <td><?php echo $titleDetails['book_type']; ?></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: end;">Quantidade</td>
@@ -66,11 +66,11 @@
                     <form method="post" action="<?php echo base_url('/bookstockcontroller/titleedit?id=' . $titleDetails['id']); ?>">
                         <div class="form-check d-flex justify-content-center">
                             <div class="justify-content-center form-check form-check-inline col-sm-3 bg-olive p-2">
-                                <input <?php echo ($titleDetails['type'] == 'Kit') ? "checked" : "";?> value="1" type="radio" name="type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>
+                                <input <?php echo ($titleDetails['book_type'] == 'Kit') ? "checked" : "";?> value="1" type="radio" name="type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>
                                 <label for="kit-type" class="form-check-label">Kit</label>
                             </div>
                             <div class="justify-content-center form-check form-check-inline col-sm-3 bg-info p-2">
-                                <input <?php echo ($titleDetails['type'] == 'Livro') ? "checked" : "";?> value="0" type="radio" name="type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;" require>
+                                <input <?php echo ($titleDetails['book_type'] == 'Livro') ? "checked" : "";?> value="0" type="radio" name="type" class="form-check-input" id="book-type" style="width: 15px; height: 15px;" require>
                                 <label for="book-type" class="form-check-label">Livro</label>
                             </div>
                         </div>
