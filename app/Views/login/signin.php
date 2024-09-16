@@ -23,11 +23,11 @@
         <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Register a new membership</p>
+        <p class="login-box-msg">Registro de Administrador</p>
 
         <form action="<?php echo base_url('/AdminController/newManager'); ?>" method="post">
           <div class="input-group mb-3">
-            <input name="name" type="text" class="form-control" placeholder="Full name">
+            <input name="name" type="text" class="form-control" placeholder="Nome">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input name="password" type="password" class="form-control" placeholder="Password">
+            <input name="password" type="password" class="form-control" placeholder="Senha">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -51,23 +51,35 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input name="confirmPassword" type="password" class="form-control" placeholder="Retype password">
+            <input name="confirmPassword" type="password" class="form-control" placeholder="Escreva a Senha">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
               </div>
             </div>
           </div>
+          <div class="input-group mb-3">
+            <select class="custom-select rounded-0" id="exampleSelectRounded0">
+              <option value="3">Temporário (24h)</option>
+              <option value="2">Administrador</option>
+              <option value="1">Superadministrador</option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-key"></span>
+              </div> 
+            </div>
+          </div>
           <div class="row">
             <!-- /.col -->
             <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
+              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
             </div>
             <!-- /.col -->
           </div>  
         </form>
 
-        <a href="<?php echo base_url('/'); ?>">I already have a membership</a>
+        <a href="<?php echo base_url('/'); ?>">Fazer Login</a>
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
