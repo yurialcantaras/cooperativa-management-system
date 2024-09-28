@@ -1,7 +1,5 @@
 <?php
 
-// redirect(base_url(''));
-// exit;
 
 ?>
 

@@ -10,18 +10,19 @@ use App\Controllers\BookStockController;
 
 class AdminController extends BaseController
 {
+    public function __construct()
+    {
+        session_start();
+    }
 
     public function newManager()
     {
 
-        session_start();
-
-        if ($_SESSION['user'] == "c28ada0f-6dbe-11ef-af54-4c2f0690c31f") {
+        if ($this->trueSession($_SESSION['user'])) {
             
             $admin = new AdministratorsModel();
             $data = $this->request->getPost();
             $data['id'] = $this->newId();
-            $data['level'] = 1;
 
             $inserted = $admin->insert($data);
 
@@ -37,10 +38,6 @@ class AdminController extends BaseController
 
     }
 
-    public function deleteManager()
-    {
-    }
-
     public function login()
     {
 
@@ -50,24 +47,28 @@ class AdminController extends BaseController
         $query = $admin->where('email', $data['email'])
             ->where('password', $data['password'])
             ->findAll();
-
+            
         if ($query) {
-
-            session_start();
+            
             $_SESSION['user'] = $query[0]['id'];
-            // Aprimorar o session
-
+            $_SESSION['permission'] = $query[0]['permission'];
             return redirect()->to(base_url('/pages/dashboard'));
+        
         } else {
 
             return redirect()->to(base_url('/'));
+
         }
     }
 
     public function logout()
     {
-        session()->destroy();
+        session_destroy();
         return redirect()->to(base_url('/'));
+    }
+
+    public function deleteManager()
+    {
     }
 
     public function newId()
@@ -93,5 +94,25 @@ class AdminController extends BaseController
 
             return $new_id;
         }
+    }
+
+    public function teste(){
+
+        $id = "c28ada0f-6dbe-11ef-af54-4c2f0690c31f";
+        return $this->trueSession($id);
+
+    }   
+
+    private function trueSession($id){
+
+        $admin = new AdministratorsModel();
+
+        if ($admin->find($id)) {
+            return true;
+        } else{
+            return false;
+        }
+
+
     }
 }

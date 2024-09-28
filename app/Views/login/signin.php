@@ -1,3 +1,13 @@
+<?php
+session_status();
+
+// var_dump($_SESSION['permission']);
+// exit;
+
+if (isset($_SESSION['user'])) {
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,10 +70,30 @@
           </div>
           <div class="input-group mb-3">
             <select class="custom-select rounded-0" id="exampleSelectRounded0">
-              <option value="3">Temporário (24h)</option>
-              <option value="2">Administrador</option>
-              <option value="1">Superadministrador</option>
+              <?php
+              
+              if ($_SESSION['permission'] === 1) {
+                
+                echo "
+                  <option value='3'>Temporário (24h)</option>
+                  <option value='2'>Administrador</option>
+                  <option value='1'>Superadministrador</option>
+                ";
+
+              }elseif ($_SESSION['permission'] === 2) {
+                
+                echo "
+                  <option value='3'>Temporário (24h)</option>
+                ";
+
+              }
+              
+              ?>
+              
             </select>
+
+            <!-- O campo deve mostrar apenas as opcoes que lhe pertence. -->
+
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-key"></span>
@@ -95,3 +125,21 @@
 </body>
 
 </html>
+
+<?php
+
+} else {
+
+  if (session_status() === 2) {
+
+    session_destroy();
+
+  }
+
+  redirect(base_url('/Pages'));
+
+  // header('Location: '.base_url('/'));
+
+}
+
+?>
