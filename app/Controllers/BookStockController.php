@@ -78,7 +78,9 @@ class BookStockController extends BaseController
         
         }
 
-        session()->set('stocklist', NULL);
+        $session = service('session');
+
+        
 
         return redirect()->to(base_url('/pages/stock'));
 
