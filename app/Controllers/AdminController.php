@@ -7,13 +7,10 @@ use App\Models\Administrators;
 use App\Models\AdministratorsModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Controllers\BookStockController;
+use Faker\Extension\Helper;
 
 class AdminController extends BaseController
 {
-    public function __construct()
-    {
-        session_start();
-    }
 
     public function newManager()
     {
@@ -41,18 +38,16 @@ class AdminController extends BaseController
     public function login()
     {
 
-        $admin = new AdministratorsModel();
-        $data = $this->request->getPost();
+        $admin = new AdministratorsModel();                         
+        $data = $this->request->getPost();                         
+        $query = $admin->where('email', $data['email'])->where('password', $data['password'])->findAll();
 
-        $query = $admin->where('email', $data['email'])
-            ->where('password', $data['password'])
-            ->findAll();
-            
         if ($query) {
+
+            session()->set('user', $query[0]['id']);
+            session()->set('permission', $query[0]['permission']);        
             
-            $_SESSION['user'] = $query[0]['id'];
-            $_SESSION['permission'] = $query[0]['permission'];
-            return redirect()->to(base_url('/pages/dashboard'));
+            return redirect()->to(base_url('/pages/dashboard'));    
         
         } else {
 
@@ -63,19 +58,21 @@ class AdminController extends BaseController
 
     public function logout()
     {
+
         session_destroy();
         return redirect()->to(base_url('/'));
+
     }
 
     public function deleteManager()
     {
+
     }
 
     public function newId()
     {
 
         // Criar um helper para a funcao newId
-
         $admin = new AdministratorsModel();
 
         if ($admin) {
@@ -83,13 +80,12 @@ class AdminController extends BaseController
             $exist = false;
 
             while ($exist != true) {
-
+                
                 $new_id = random_int(1000000000, 9999999999);
-
                 if ($admin->find($new_id) == false) {
-
                     $exist = true;
                 }
+
             }
 
             return $new_id;
@@ -105,6 +101,8 @@ class AdminController extends BaseController
 
     private function trueSession($id){
 
+        // Criar uma verificação se o id do usuário nas sessões bate com o nível de acesso no banco de dados
+
         $admin = new AdministratorsModel();
 
         if ($admin->find($id)) {
@@ -112,7 +110,6 @@ class AdminController extends BaseController
         } else{
             return false;
         }
-
 
     }
 }
