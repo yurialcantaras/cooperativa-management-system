@@ -7,6 +7,7 @@ use App\Models\Administrators;
 use App\Models\AdministratorsModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Controllers\BookStockController;
+use CodeIgniter\Database\Query;
 use Faker\Extension\Helper;
 
 class AdminController extends BaseController
@@ -32,6 +33,22 @@ class AdminController extends BaseController
             return redirect()->to(base_url('/pages/dashboard'));
 
         }
+
+    }
+
+    public function loginUser($data)
+    {
+
+        $admin = new AdministratorsModel();                      
+        $query = $admin->where('email', $data['email'])->where('password', $data['password'])->findAll();
+
+        $login = [
+            'id'            => $query[0]['id'],
+            'name'          => $query[0]['name'],
+            'permission'    => $query[0]['permission'],
+        ];
+
+        return $login;
 
     }
 

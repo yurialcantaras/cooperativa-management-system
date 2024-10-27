@@ -2,8 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Controllers\AdminController;
+
 class Pages extends BaseController
 {
+
+    public $structure = []; 
+
+    public function initController($request, $response, $logger)
+    {
+        // Do Not Edit This Line
+        parent::initController($request, $response, $logger);
+
+        $this->structure['banner'] = view('adm/header/adm.header.php');
+        $this->structure['footer'] = view('adm/footer/adm.footer.php');
+
+    }
+
     public function index()
     {
         return view('login/index');
@@ -13,21 +28,50 @@ class Pages extends BaseController
     {
         return view('login/signin');
     }
+    
+    public function login()
+    {
+
+        $data = $this->request->getPost();
+
+        $admin = new AdminController;
+        $query = $admin->loginUser($data);
+
+        if ($query) {
+
+            session()->set('user', $query);            
+            return redirect()->to(base_url('/pages/dashboard'));
+        
+        } else {
+
+            # Erro de usuário inexistente
+            return redirect()->to(base_url('/'));
+
+        }
+    }
 
     public function managers()
     {
 
-        $structure['banner'] = view('adm/header/adm.header.php');
-        $structure['footer'] = view('adm/footer/adm.footer.php');
-        return view('adm/content/managers', $structure);
+        return view('adm/content/managers', $this->structure);
     }
 
     public function dashboard()
     {
 
-        $structure['banner'] = view('adm/header/adm.header.php');
-        $structure['footer'] = view('adm/footer/adm.footer.php');
-        return view('adm/content/dashboard', $structure);
+        $user = session()->get('user');
+
+        if (isset($user) && $user['permission'] >= 9) {
+            
+            return view('adm/content/dashboard', $this->structure);
+            
+        }else{
+
+            // Usuário não autorizado
+            return redirect()->to(base_url('/'));
+
+        }
+
     }
 
     public function stock()
@@ -41,12 +85,10 @@ class Pages extends BaseController
 
         }
 
-        $structure['banner'] = view('adm/header/adm.header.php');
-        $structure['footer'] = view('adm/footer/adm.footer.php');
-        $structure['stocklist'] = $data;
+        $this->structure['stocklist'] = $data;
 
         session()->set('stocklist', null);
-        return view('adm/content/stock', $structure);
+        return view('adm/content/stock', $this->structure);
 
     }
 
@@ -63,11 +105,9 @@ class Pages extends BaseController
         
         }
 
-        $structure['banner'] = view('adm/header/adm.header.php');
-        $structure['footer'] = view('adm/footer/adm.footer.php');
-        $structure['titleDetails'] = $session->get('titleDetails');
+        $this->structure['titleDetails'] = $session->get('titleDetails');
         $session->set('isDetail', null);
-        return view('adm/content/book_title', $structure);
+        return view('adm/content/book_title', $this->structure);
     }
 
     public function relatorio()
