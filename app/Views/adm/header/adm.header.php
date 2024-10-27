@@ -59,7 +59,7 @@
           <a href="<?php echo base_url('/pages/dashboard') ?>" class="nav-link">Cooperativa</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url('/pages/managers') ?>" class="nav-link">Gerentes</a>
+          <a href="<?php echo base_url('/pages/gerentes') ?>" class="nav-link">Gerentes</a>
         </li>
       </ul>
 
@@ -198,8 +198,8 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="<?php echo base_url('/pages/stock'); ?>" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+              <a href="<?php echo base_url('/pages/estoque'); ?>" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
                 <p>
                   Estoque
                   <span class="badge badge-info right">2</span>
@@ -207,10 +207,18 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/gallery.html" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+              <a href="<?php echo base_url('/pages/novo-titulo'); ?>" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
                 <p>
-                  Histórico de Vendas
+                  Novo Título
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url('/pages/relatorio'); ?>" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                  Novo Relatorio
                 </p>
               </a>
             </li>

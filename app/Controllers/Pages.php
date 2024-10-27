@@ -92,7 +92,7 @@ class Pages extends BaseController
 
     }
 
-    public function title()
+    public function titulo()
     {
         $structure['id'] = $this->request->getGet('id');
         
@@ -107,15 +107,22 @@ class Pages extends BaseController
 
         $this->structure['titleDetails'] = $session->get('titleDetails');
         $session->set('isDetail', null);
-        return view('adm/content/book_title', $this->structure);
+        return view('adm/content/titulo', $this->structure);
     }
 
     public function relatorio()
     {
 
-        $structure['banner'] = view('adm/header/relatorio.header.php');
-        $structure['footer'] = view('adm/footer/adm.footer.php');
-        return view('adm/content/relatorio', $structure);
+        $this->structure['banner'] = view('adm/header/relatorio.header.php');
+        return view('adm/content/relatorio', $this->structure);
+
+    }
+
+    public function novoTitulo()
+    {
+
+        $this->structure['banner'] = view('adm/header/relatorio.header.php');
+        return view('adm/content/novo-titulo', $this->structure);
 
     }
 }

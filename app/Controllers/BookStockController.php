@@ -20,7 +20,7 @@ class BookStockController extends BaseController
         $session = session();
         $session->set('stocklist', $data);
 
-        return redirect()->to(base_url('/pages/stock'));
+        return redirect()->to(base_url('/pages/estoque'));
 
     }
 
@@ -55,7 +55,7 @@ class BookStockController extends BaseController
         $session->set('isDetail', $id);
         $session->set('titleDetails', $details);
 
-        return redirect()->to(base_url('/pages/title?id='.$id));
+        return redirect()->to(base_url('/pages/titulo?id='.$id));
 
     }
 
@@ -79,7 +79,7 @@ class BookStockController extends BaseController
         }
 
         $session = service('session');
-        return redirect()->to(base_url('/pages/stock'));
+        return redirect()->to(base_url('/pages/estoque'));
 
     }
 
@@ -100,7 +100,7 @@ class BookStockController extends BaseController
         $connect = new BookStockModel();
         $connect->update($id, $data);
 
-        return redirect()->to(base_url('/pages/title?id='.$id));
+        return redirect()->to(base_url('/pages/titulo?id='.$id));
 
     }
 
@@ -111,7 +111,7 @@ class BookStockController extends BaseController
         $connect = new BookStockModel();
         $connect->delete($id);
         
-        return redirect()->to(base_url('/pages/stock'));
+        return redirect()->to(base_url('/pages/estoque'));
 
     }
 }
