@@ -45,7 +45,7 @@ class AdminController extends BaseController
         $login = [
             'id'            => $query[0]['id'],
             'name'          => $query[0]['name'],
-            'permission'    => $query[0]['permission'],
+            'level'    => $query[0]['level'],
         ];
 
         return $login;

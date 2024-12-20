@@ -56,10 +56,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url('/pages/dashboard') ?>" class="nav-link">Cooperativa</a>
+          <a href="<?php echo base_url('/pages/dashboard') ?>" class="nav-link">Dashboard</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url('/pages/gerentes') ?>" class="nav-link">Gerentes</a>
+        <li class="nav-item">
+          <a href="<?php echo base_url('/pages/report'); ?>" target="_blank" class="nav-link">Novo Relatorio</a>
         </li>
       </ul>
 
@@ -198,30 +198,29 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="<?php echo base_url('/pages/estoque'); ?>" class="nav-link">
+              <a href="<?php echo base_url('/pages/stock'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
-                  Estoque
-                  <span class="badge badge-info right">2</span>
+                  Cooperativa
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('/pages/novo-titulo'); ?>" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
+              <a href="<?php echo base_url('/pages/colportagem'); ?>" class="nav-link">
+                <i class="nav-icon fas fa-file-alt"></i>
                 <p>
-                  Novo Título
+                  Colportagem
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('/pages/relatorio'); ?>" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
+              <a href="<?php echo base_url('/pages/admins'); ?>" class="nav-link">
+                <i class="nav-icon far fa-user"></i>
                 <p>
-                  Novo Relatorio
+                  Gerentes
                 </p>
               </a>
-            </li>
+            </li> 
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

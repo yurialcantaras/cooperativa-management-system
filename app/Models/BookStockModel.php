@@ -12,7 +12,7 @@ class BookStockModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['book_type', 'book_name', 'quantity', 'arrived_date', 'observation'];
+    protected $allowedFields    = ['book_type', 'book_name', 'quantity', 'arrived_date', 'observations'];
 
     // Dates
     protected $useTimestamps = false;
@@ -28,7 +28,7 @@ class BookStockModel extends Model
         'book_name'     => 'required|max_length[255]|min_length[3]|regex_match[/^[\p{L}\p{N}_\s.]+$/u]',
         'quantity'      => 'required|max_length[20]',
         'arrived_date'  => 'required|valid_date[Y-m-d]',
-        'observation'   => 'max_length[255]|regex_match[/^[\p{L}\p{N}_\s.]+$/u]',
+        'observations'   => 'max_length[500]|regex_match[/^[\p{L}\p{N}_\s.]+$/u]',
 
     ];
     protected $validationMessages   = [];

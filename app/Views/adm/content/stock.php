@@ -53,11 +53,11 @@
                                         echo "
                                         
                                         <tr>
-                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['book_name'] ."</a></td>
-                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['book_type'] ."</td>
-                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['quantity'] ."</td>
-                                            <td><a href=".base_url('/pages/title?id='.$title['id'])." >". $title['arrived_date'] ."</td>
-                                            <td class='obs-in-table'>". $title['observation'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_name'] ."</a></td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_type'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['quantity'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['arrived_date'] ."</td>
+                                            <td class='obs-in-table'>". $title['observations'] ."</td>
                                         </tr>
                                         
                                         ";
@@ -87,7 +87,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="<?= base_url('/bookstockcontroller/newtitle') ?>">
+            <form method="post" action="<?= base_url('/bookstockcontroller/newtitle'); ?>">
                 <div class="card-body">
                     <div class="form-check d-flex justify-content-center">
                         <div class="col-sm-3"></div>
@@ -119,7 +119,7 @@
                     <div class="form-group">
                         <label>Observação</label>
                         <div class="input-group">
-                            <input name="observation" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)"/>
+                            <input name="observations" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)"/>
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">

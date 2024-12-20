@@ -9,6 +9,9 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+use App\Models\BookStockModel;
+use App\Models\ReportModel;
+
 /**
  * Class BaseController
  *
@@ -27,6 +30,9 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
+
+    protected $stockConnect;
+    protected $reportConnect;
 
     /**
      * An array of helpers to be loaded automatically upon
@@ -54,5 +60,8 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+
+        $this->stockConnect = new BookStockModel();
+        $this->reportConnect = new ReportModel();
     }
 }

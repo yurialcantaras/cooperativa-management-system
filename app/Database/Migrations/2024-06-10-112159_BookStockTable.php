@@ -16,6 +16,14 @@ class BookStockTable extends Migration{
                 'null' => false,
             ),
 
+            'book_type' => [
+                'type'       => 'CHAR',
+                'constraint' => 2,
+                'null'       => false,
+                'default'    => '00',
+                'after'      => 'quantity',
+            ],
+
             'book_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -28,6 +36,13 @@ class BookStockTable extends Migration{
                 'constraint' => 10,
                 'null' => false,
                 'default' => 0,
+            ),
+
+            'observations' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 500, 
+                'null' => true,      
+                'default' => null,  
             ),
         
         ));

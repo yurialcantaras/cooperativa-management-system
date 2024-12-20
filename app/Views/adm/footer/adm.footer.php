@@ -32,7 +32,7 @@
     var year = today.getFullYear();
 
     var formattedDate = day + '-' + month + '-' + year;
-    var dateInput = document.querySelector('input[name="colportagem_date"]');
+    var dateInput = document.querySelector('input[name="date"]');
     if (dateInput) {
         dateInput.value = formattedDate;
     }

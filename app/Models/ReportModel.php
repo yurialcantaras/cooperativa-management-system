@@ -4,15 +4,25 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ColportagemReport extends Model
+class ReportModel extends Model
 {
-    protected $table            = 'colportagemreports';
+    protected $table            = 'colportagem_report';
     protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'id',
+        'colportor',
+        'kits',
+        'books',
+        'jav',
+        'cash_amount',
+        'card_amount',
+        'transfer_amount',
+        'observations'
+    ];
 
     // Dates
     protected $useTimestamps = false;

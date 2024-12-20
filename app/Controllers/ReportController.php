@@ -3,23 +3,37 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\AdminController;
+use App\Models\ReportModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class ColportagemReport extends BaseController
+class ReportController extends BaseController
 {
 
     public function newReport(){
-        
-        $colportor = $this->request->getPost('colportor');
-        $kit_qty = $this->request->getPost('kit_qty');
-        $book_qty = $this->request->getPost('book_qty');
-        $jav_qty = $this->request->getPost('jav_qty');
-        $colportagem_date = $this->request->getPost('colportagem_date');
 
-        $cash = $this->request->getPost('cash');
-        $pix = $this->request->getPost('pix');
-        $card = $this->request->getPost('card');
-        $observation = $this->request->getPost('observation');
+        $data = $this->request->getPost();
+
+        $admin = new AdminController;
+        $data['id'] = $admin->newId();
+
+        $admin = new ReportModel();
+        $inserted = $admin->insert($data);
+
+        if (!$inserted) {
+            
+            var_dump($admin->error());
+            exit;
+
+        }
+
+        return redirect()->to(base_url('/pages/report'));
+
+    }
+
+    public function reportDashboard(){
+
+        
 
     }
 }

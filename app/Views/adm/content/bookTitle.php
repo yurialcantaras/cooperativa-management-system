@@ -43,7 +43,7 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align: end;">Observação</td>
-                                    <td><?php echo $titleDetails['observation']; ?></td>
+                                    <td><?php echo $titleDetails['observations']; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label>Observação</label>
                                 <div class="input-group">
-                                    <input name="observation" type="text" class="form-control" value="<?php echo $titleDetails['observation']; ?>" placeholder="Pequena observação (Não obrigatório)"/>
+                                    <input name="observations" type="text" class="form-control" value="<?php echo $titleDetails['observations']; ?>" placeholder="Pequena observação (Não obrigatório)"/>
                                 </div>
                             </div>
                             <div class="form-group d-flex justify-content-center">

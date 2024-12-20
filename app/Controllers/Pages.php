@@ -61,7 +61,7 @@ class Pages extends BaseController
 
         $user = session()->get('user');
 
-        if (isset($user) && $user['permission'] >= 9) {
+        if (isset($user) && $user['level'] <= 9) {
             
             return view('adm/content/dashboard', $this->structure);
             
@@ -92,7 +92,7 @@ class Pages extends BaseController
 
     }
 
-    public function titulo()
+    public function bookTitle()
     {
         $structure['id'] = $this->request->getGet('id');
         
@@ -107,22 +107,29 @@ class Pages extends BaseController
 
         $this->structure['titleDetails'] = $session->get('titleDetails');
         $session->set('isDetail', null);
-        return view('adm/content/titulo', $this->structure);
+        return view('adm/content/bookTitle', $this->structure);
     }
 
-    public function relatorio()
+    public function colportagem()
     {
 
-        $this->structure['banner'] = view('adm/header/relatorio.header.php');
-        return view('adm/content/relatorio', $this->structure);
+        return view('adm/content/colportagem', $this->structure);
 
     }
 
-    public function novoTitulo()
+    public function report()
     {
 
-        $this->structure['banner'] = view('adm/header/relatorio.header.php');
-        return view('adm/content/novo-titulo', $this->structure);
+        $this->structure['banner'] = view('adm/header/report.header.php');
+        return view('adm/content/report', $this->structure);
+
+    }
+
+    public function newTitle()
+    {
+
+        $this->structure['banner'] = view('adm/header/report.header.php');
+        return view('adm/content/newTitle', $this->structure);
 
     }
 }

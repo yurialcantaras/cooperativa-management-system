@@ -20,7 +20,7 @@ class BookStockController extends BaseController
         $session = session();
         $session->set('stocklist', $data);
 
-        return redirect()->to(base_url('/pages/estoque'));
+        return redirect()->to(base_url('/pages/stock'));
 
     }
 
@@ -55,7 +55,7 @@ class BookStockController extends BaseController
         $session->set('isDetail', $id);
         $session->set('titleDetails', $details);
 
-        return redirect()->to(base_url('/pages/titulo?id='.$id));
+        return redirect()->to(base_url('/pages/bookTitle?id='.$id));
 
     }
 
@@ -65,7 +65,7 @@ class BookStockController extends BaseController
         $connect = new BookStockModel();
         $data = $this->request->getPost();
 
-        if ($data['observation'] === "") $data['observation'] = " ";
+        if ($data['observations'] === "") $data['observations'] = " ";
 
         $admin = new AdminController();
         $data['id'] = $admin->newId(); // Create a service
@@ -79,7 +79,7 @@ class BookStockController extends BaseController
         }
 
         $session = service('session');
-        return redirect()->to(base_url('/pages/estoque'));
+        return redirect()->to(base_url('/pages/stock'));
 
     }
 
@@ -94,13 +94,13 @@ class BookStockController extends BaseController
         $dateFormat = new DateTime($data['arrived_date']);
         $data['arrived_date'] = $dateFormat->format('Y-m-d');
 
-        // Observation Field
-        if ($data['observation'] === "") $data['observation'] = " ";
+        // Observations Field
+        if ($data['observations'] === "") $data['observations'] = " ";
         
         $connect = new BookStockModel();
         $connect->update($id, $data);
 
-        return redirect()->to(base_url('/pages/titulo?id='.$id));
+        return redirect()->to(base_url('/pages/bookTitle?id='.$id));
 
     }
 
@@ -111,7 +111,7 @@ class BookStockController extends BaseController
         $connect = new BookStockModel();
         $connect->delete($id);
         
-        return redirect()->to(base_url('/pages/estoque'));
+        return redirect()->to(base_url('/pages/stock'));
 
     }
 }

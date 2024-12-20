@@ -62,6 +62,13 @@ class ColportagemReport extends Migration
                 'null' => true,
                 'default' => 0.0,
             ),
+
+            'observations' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 500, 
+                'null' => true,      
+                'default' => null,  
+            ),
         
         ));
 
