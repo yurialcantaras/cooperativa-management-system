@@ -173,7 +173,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="btn btn-danger" href="<?php echo base_url('/admincontroller/logout/') ?>">Sair</a>
+          <a class="btn btn-danger" href="<?php echo base_url('/pages/logout/') ?>">Sair</a>
         </li>
       </ul>
     </nav>

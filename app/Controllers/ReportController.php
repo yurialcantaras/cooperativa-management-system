@@ -31,6 +31,16 @@ class ReportController extends BaseController
 
     }
 
+    public function listReport(){
+
+        $connect = $this->reportConnect;
+        $data = $connect->orderBy('date')->findAll();
+        var_dump($data);
+        
+        // return $data;
+
+    }
+
     public function reportDashboard(){
 
         

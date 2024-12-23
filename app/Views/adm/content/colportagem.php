@@ -1,4 +1,4 @@
-<?php echo $banner; ?>
+<?php echo $banner;?>
 
 <div id="overlay"></div>
 
@@ -91,35 +91,43 @@
                             <table id="example1" class="table table-bordered table-striped" style="overflow: hidden;">
                                 <thead>
                                     <tr>
-                                        <th>Nome do Título</th>
-                                        <th>Tipo</th>
-                                        <th>Quantidade</th>
-                                        <th>Data de Chegada</th>
-                                        <th class="col-5">Observação</th>
+                                        <th>Colportor</th>
+                                        <th>Kits</th>
+                                        <th>Livros</th>
+                                        <th>JAVs</th>
+                                        <th>Data</th>
+                                        <th>Qtd Dinheiro</th>
+                                        <th>Qtd Cartão</th>
+                                        <th>Qtd Transferência</th>
+                                        <th>Observação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <?php 
                                     
-                                    // foreach ($stocklist as $title) {
+                                    foreach ($reportList as $report) {
                                         
-                                    //     $formatDate = new DateTime($title['arrived_date']);
-                                    //     $title['arrived_date'] = $formatDate->format('d-m-Y');
+                                        $formatDate = new DateTime($report['date']);
+                                        $report['date'] = $formatDate->format('d-m-Y');
 
-                                    //     echo "
+                                        echo "
                                         
-                                    //     <tr>
-                                    //         <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_name'] ."</a></td>
-                                    //         <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_type'] ."</td>
-                                    //         <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['quantity'] ."</td>
-                                    //         <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['arrived_date'] ."</td>
-                                    //         <td class='obs-in-table'>". $title['observations'] ."</td>
-                                    //     </tr>
+                                        <tr>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['colportor'] ."</a></td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['kits'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['books'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['jav'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['date'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['cash_amount'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['card_amount'] ."</td>
+                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['transfer_amount'] ."</td>
+                                            <td class='obs-in-table'>". $report['observations'] ."</td>
+                                        </tr>
                                         
-                                    //     ";
+                                        ";
 
-                                    // }
+                                    }
 
                                     ?>
                                 </tbody>

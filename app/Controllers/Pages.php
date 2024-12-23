@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\AdminController;
+use App\Models\ReportModel;
 
 class Pages extends BaseController
 {
@@ -48,6 +49,13 @@ class Pages extends BaseController
             return redirect()->to(base_url('/'));
 
         }
+    }
+
+    public function logout(){
+
+        session()->destroy();
+        return redirect()->to(base_url('/'));
+
     }
 
     public function managers()
@@ -113,7 +121,15 @@ class Pages extends BaseController
     public function colportagem()
     {
 
+        $order = "colportor";
+        $sort = "";
+
+        $model = new ReportModel();
+        $reportList = list_items($model, null, $order, $sort);
+        
+        $this->structure['reportList'] = $reportList;
         return view('adm/content/colportagem', $this->structure);
+        
 
     }
 
