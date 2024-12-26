@@ -6,7 +6,7 @@ function list_items($model, $condition, $order, $sort){
 
     Condition format:   $condition['id', '123']
     Order format:       $order = "date"
-    Sort format:  $sort = "desc" 
+    Sort format:        $sort = "desc" 
                         $sort = "asc"
     
     */
@@ -17,7 +17,7 @@ function list_items($model, $condition, $order, $sort){
         
             if (isset($condition)) {
     
-                $list = $model->orderBy($order, $sort)->where($condition)->findAll();
+                $list = $model->orderBy($order, $sort)->where("{$condition}")->findAll();
                 return $list;
 
             }
@@ -29,7 +29,7 @@ function list_items($model, $condition, $order, $sort){
 
         if (isset($condition)) {
     
-            $list = $model->orderBy($order)->where($condition)->findAll();
+            $list = $model->orderBy($order)->where("{$condition}")->findAll();
             return $list;
 
         }
@@ -38,8 +38,8 @@ function list_items($model, $condition, $order, $sort){
 
     if (isset($condition)) {
         
-        $list = $model->where($condition)->findAll();
-        return $list;	
+        $list = $model->where("{$condition}")->findAll();
+        return $list;
 
     }
 
