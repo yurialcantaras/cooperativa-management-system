@@ -1,4 +1,4 @@
-<?php echo $banner;?>
+<?php echo $banner; ?>
 
 <div id="overlay"></div>
 
@@ -45,29 +45,28 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php 
-                                    
+                                    <?php
+
                                     foreach ($reportList as $report) {
-                                        
+
                                         $formatDate = new DateTime($report['date']);
                                         $report['date'] = $formatDate->format('d-m-Y');
 
                                         echo "
                                         
                                         <tr>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['colportor'] ."</a></td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['kits'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['books'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['jav'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['date'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['cash_amount'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['card_amount'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$report['id'])." >". $report['transfer_amount'] ."</td>
-                                            <td class='obs-in-table'>". $report['observations'] ."</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['colportor'] . "</a></td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['kits'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['books'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['jav'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['date'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['cash_amount'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['card_amount'] . "</td>
+                                            <td><a href=" . base_url('/pages/reportDetails?id=' . $report['id']) . " >" . $report['transfer_amount'] . "</td>
+                                            <td class='obs-in-table'>" . $report['observations'] . "</td>
                                         </tr>
                                         
                                         ";
-
                                     }
 
                                     ?>
@@ -119,13 +118,13 @@
                     <div class="form-group">
                         <label>Data de Chegada</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require/>
+                            <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require />
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Observação</label>
                         <div class="input-group">
-                            <input name="observations" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)"/>
+                            <input name="observations" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)" />
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">
