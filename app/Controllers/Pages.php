@@ -45,11 +45,15 @@ class Pages extends BaseController
         $condition = "date <= '{$closer}' AND date >= '{$farther}'";
         $result = list_items($model, $condition, null, null);
 
+        ###### BUILDING PAGE ######
+
         $this->structure['reportList'] = list_items($model, null, "date", "desc");
-        $this->structure['dashboard'] = dashboard_panel($result, 'kits', 'sum');
-        $this->structure['dashboard'] += dashboard_panel($result, 'books', 'sum');
-        $this->structure['dashboard'] += dashboard_panel($result, 'jav', 'sum');
-        $this->structure['dashboard'] += dashboard_panel($result, 'id', 'total');
+        
+        $dashboard = dashboard_panel($result, 'kits', 'sum');
+        $dashboard += dashboard_panel($result, 'books', 'sum');
+        $dashboard += dashboard_panel($result, 'jav', 'sum');
+        $dashboard += dashboard_panel($result, 'id', 'total');
+        $this->structure['topDashboard'] = view('adm/header/top.dashboard.php', $dashboard);
 
         return view('adm/content/colportagem', $this->structure);
 

@@ -19,7 +19,7 @@
     <section class="content">
         <div class="container-fluid">
 
-            <?php echo $reportDashboard; ?>
+            <?php echo $topDashboard; ?>
 
             <div class="row">
                 <div class="col-12">
