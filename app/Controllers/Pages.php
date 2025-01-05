@@ -54,6 +54,108 @@ class Pages extends BaseController
         return view('adm/content/colportagem', $this->structure);
 
     }
+
+    public function kitsReport()
+    {
+        $model = new ReportModel();
+
+        if (empty(session()->get('dashboard_range'))) {
+
+            $date_range = new DateTime();
+
+            $closer = $date_range->format('Y-m-d');
+            $farther = $date_range->modify('-3 months')->format('Y-m-d');
+    
+            session()->set('dashboard_range', [$closer, $farther]);
+            
+        }else {
+            
+            $range = session()->get('dashboard_range');
+            $closer = $range[0];
+            $farther = $range[1];
+            
+        }
+
+        $condition = "date <= '{$closer}' AND date >= '{$farther}' AND kits != 0";
+        $result = list_items($model, $condition, null, null);
+
+        $this->structure['reportList'] = list_items($model, null, "date", "desc");
+        $this->structure['dashboard'] = dashboard_panel($result, 'kits', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'books', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'jav', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'id', 'total');
+
+        return view('adm/content/colportagem', $this->structure);
+
+    }
+
+    public function booksReport()
+    {
+        $model = new ReportModel();
+
+        if (empty(session()->get('dashboard_range'))) {
+
+            $date_range = new DateTime();
+
+            $closer = $date_range->format('Y-m-d');
+            $farther = $date_range->modify('-3 months')->format('Y-m-d');
+    
+            session()->set('dashboard_range', [$closer, $farther]);
+            
+        }else {
+            
+            $range = session()->get('dashboard_range');
+            $closer = $range[0];
+            $farther = $range[1];
+            
+        }
+
+        $condition = "date <= '{$closer}' AND date >= '{$farther}' AND books != 0";
+        $result = list_items($model, $condition, null, null);
+
+        $this->structure['reportList'] = list_items($model, null, "date", "desc");
+        $this->structure['dashboard'] = dashboard_panel($result, 'kits', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'books', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'jav', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'id', 'total');
+
+        return view('adm/content/colportagem', $this->structure);
+
+    }
+
+    public function javsReport()
+    {
+        $model = new ReportModel();
+
+        if (empty(session()->get('dashboard_range'))) {
+
+            $date_range = new DateTime();
+
+            $closer = $date_range->format('Y-m-d');
+            $farther = $date_range->modify('-3 months')->format('Y-m-d');
+    
+            session()->set('dashboard_range', [$closer, $farther]);
+            
+        }else {
+            
+            $range = session()->get('dashboard_range');
+            $closer = $range[0];
+            $farther = $range[1];
+            
+        }
+
+        $condition = "date <= '{$closer}' AND date >= '{$farther}' AND jav != 0";
+        $result = list_items($model, $condition, null, null);
+
+        $this->structure['reportList'] = list_items($model, null, "date", "desc");
+        $this->structure['dashboard'] = dashboard_panel($result, 'kits', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'books', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'jav', 'sum');
+        $this->structure['dashboard'] += dashboard_panel($result, 'id', 'total');
+
+        return view('adm/content/colportagem', $this->structure);
+
+    }
     
     public function dashboard()
     {
