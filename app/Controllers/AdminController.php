@@ -17,7 +17,7 @@ class AdminController extends BaseController
     {
 
         if ($this->trueSession($_SESSION['user'])) {
-            
+
             $admin = new AdministratorsModel();
             $data = $this->request->getPost();
             $data['id'] = $this->newId();
@@ -27,49 +27,43 @@ class AdminController extends BaseController
             if (!$inserted) {
 
                 var_dump($admin->errors());
-
             }
 
             return redirect()->to(base_url('/pages/dashboard'));
-
         }
-
     }
 
     public function loginUser($data)
     {
 
-        $admin = new AdministratorsModel();                      
+        $admin = new AdministratorsModel();
         $query = $admin->where('email', $data['email'])->where('password', $data['password'])->findAll();
 
         $login = [
-            'id'            => $query[0]['id'],
-            'name'          => $query[0]['name'],
-            'level'    => $query[0]['level'],
+            'id'    => $query[0]['id'],
+            'name'  => $query[0]['name'],
+            'level' => $query[0]['level'],
         ];
 
         return $login;
-
     }
 
     public function login()
     {
 
-        $admin = new AdministratorsModel();                         
-        $data = $this->request->getPost();                         
+        $admin = new AdministratorsModel();
+        $data = $this->request->getPost();
         $query = $admin->where('email', $data['email'])->where('password', $data['password'])->findAll();
 
         if ($query) {
 
             session()->set('user', $query[0]['id']);
-            session()->set('permission', $query[0]['permission']);        
-            
-            return redirect()->to(base_url('/pages/dashboard'));    
-        
+            session()->set('permission', $query[0]['permission']);
+
+            return redirect()->to(base_url('/pages/stock'));
         } else {
 
             return redirect()->to(base_url('/'));
-
         }
     }
 
@@ -78,13 +72,9 @@ class AdminController extends BaseController
 
         session_destroy();
         return redirect()->to(base_url('/'));
-
     }
 
-    public function deleteManager()
-    {
-
-    }
+    public function deleteManager() {}
 
     public function newId()
     {
@@ -97,26 +87,26 @@ class AdminController extends BaseController
             $exist = false;
 
             while ($exist != true) {
-                
+
                 $new_id = random_int(1000000000, 9999999999);
                 if ($admin->find($new_id) == false) {
                     $exist = true;
                 }
-
             }
 
             return $new_id;
         }
     }
 
-    public function teste(){
+    public function teste()
+    {
 
         $id = "c28ada0f-6dbe-11ef-af54-4c2f0690c31f";
         return $this->trueSession($id);
+    }
 
-    }   
-
-    private function trueSession($id){
+    private function trueSession($id)
+    {
 
         // Criar uma verificação se o id do usuário nas sessões bate com o nível de acesso no banco de dados
 
@@ -124,9 +114,8 @@ class AdminController extends BaseController
 
         if ($admin->find($id)) {
             return true;
-        } else{
+        } else {
             return false;
         }
-
     }
 }

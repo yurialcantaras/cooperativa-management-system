@@ -106,7 +106,7 @@ class Pages extends BaseController
         if ($query) {
 
             session()->set('user', $query);
-            return redirect()->to(base_url('/pages/dashboard'));
+            return redirect()->to(base_url('/pages/stock'));
         } else {
 
             # Erro de usuário inexistente
