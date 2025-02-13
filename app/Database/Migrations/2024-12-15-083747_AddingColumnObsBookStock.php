@@ -11,17 +11,17 @@ class AddingColumnObsBookStock extends Migration
         $fields = [
             'observations' => array(
                 'type' => 'VARCHAR',
-                'constraint' => 500, 
-                'null' => true,      
-                'default' => null,  
+                'constraint' => 500,
+                'null' => true,
+                'default' => null,
             ),
         ];
 
-        $this->forge->addColumn('book_stock', $fields);
+        $this->forge->addColumn('literature_stock', $fields);
     }
 
     public function down()
     {
-        $this->forge->dropColumn('book_stock', ['observations']);
+        $this->forge->dropColumn('literature_stock', ['observations']);
     }
 }

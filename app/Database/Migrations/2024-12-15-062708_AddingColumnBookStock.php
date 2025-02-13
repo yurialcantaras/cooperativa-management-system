@@ -9,7 +9,7 @@ class AddingColumnBookStock extends Migration
     public function up()
     {
         $fields = [
-            'book_type' => [
+            'type' => [
                 'type'       => 'CHAR',
                 'constraint' => 2,
                 'null'       => false,
@@ -24,6 +24,6 @@ class AddingColumnBookStock extends Migration
 
     public function down()
     {
-        $this->forge->dropColumn('book_stock', ['book_type']);
+        $this->forge->dropColumn('literature_stock', ['type']);
     }
 }

@@ -4,9 +4,11 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class BookStockTable extends Migration{
+class BookStockTable extends Migration
+{
 
-    public function up(){
+    public function up()
+    {
 
         $this->forge->addField(array(
 
@@ -16,7 +18,7 @@ class BookStockTable extends Migration{
                 'null' => false,
             ),
 
-            'book_type' => [
+            'type' => [
                 'type'       => 'CHAR',
                 'constraint' => 2,
                 'null'       => false,
@@ -24,7 +26,7 @@ class BookStockTable extends Migration{
                 'after'      => 'quantity',
             ],
 
-            'book_name' => array(
+            'name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => false,
@@ -40,24 +42,22 @@ class BookStockTable extends Migration{
 
             'observations' => array(
                 'type' => 'VARCHAR',
-                'constraint' => 500, 
-                'null' => true,      
-                'default' => null,  
+                'constraint' => 500,
+                'null' => true,
+                'default' => null,
             ),
-        
+
         ));
         $this->forge->addField('arrived_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP');
         $this->forge->addField('purchase_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP');
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('book_stock');
-
+        $this->forge->createTable('literature_stock');
     }
 
-    public function down(){
+    public function down()
+    {
 
-        $this->forge->dropTable('book_stock');
-
+        $this->forge->dropTable('literature_stock');
     }
-
 }

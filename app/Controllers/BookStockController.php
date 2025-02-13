@@ -15,13 +15,12 @@ class BookStockController extends BaseController
     {
 
         $connect = new BookStockModel();
-        $data = $connect->orderBy('book_name')->findAll();
+        $data = $connect->orderBy('name')->findAll();
 
         $session = session();
         $session->set('stocklist', $data);
 
         return redirect()->to(base_url('/pages/stock'));
-
     }
 
     public function titleDetail()
@@ -30,38 +29,36 @@ class BookStockController extends BaseController
         $session->set('isDetail', null);
 
         $id = $this->request->getGet('id');
-        
+
         $connect = new BookStockModel();
         $details = $connect->where('id', $id)->first();
 
 
         ######## Processing Data ########
-        
+
         // Book type
-        $details['book_type'] = ($details['book_type'] == 1) ? "Kit" : "Livro";
+        $details['type'] = ($details['type'] == 1) ? "Kit" : "Livro";
 
         // Arrived Date
         $dateFormat = new DateTime($details['arrived_date']);
         $details['arrived_date'] = $dateFormat->format('d-m-Y');
 
         if ($details == null) {
-            
+
             $session->set('isDetail', null);
             echo "Título não encontrado";
             exit;
-            
         }
-        
+
         $session->set('isDetail', $id);
         $session->set('titleDetails', $details);
 
-        return redirect()->to(base_url('/pages/bookTitle?id='.$id));
-
+        return redirect()->to(base_url('/pages/bookTitle?id=' . $id));
     }
 
     public function newTitle()
     {
-        
+
         $connect = new BookStockModel();
         $data = $this->request->getPost();
 
@@ -75,12 +72,11 @@ class BookStockController extends BaseController
 
             var_dump($connect->errors());
             exit; // Tratar mensagem de erro
-        
+
         }
 
         $session = service('session');
         return redirect()->to(base_url('/pages/stock'));
-
     }
 
     public function titleEdit()
@@ -96,12 +92,11 @@ class BookStockController extends BaseController
 
         // Observations Field
         if ($data['observations'] === "") $data['observations'] = " ";
-        
+
         $connect = new BookStockModel();
         $connect->update($id, $data);
 
-        return redirect()->to(base_url('/pages/bookTitle?id='.$id));
-
+        return redirect()->to(base_url('/pages/bookTitle?id=' . $id));
     }
 
     public function titleDelete()
@@ -110,8 +105,7 @@ class BookStockController extends BaseController
         $id = $this->request->getGet('id');
         $connect = new BookStockModel();
         $connect->delete($id);
-        
-        return redirect()->to(base_url('/pages/stock'));
 
+        return redirect()->to(base_url('/pages/stock'));
     }
 }

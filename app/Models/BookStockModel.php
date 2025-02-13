@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class BookStockModel extends Model
 {
-    protected $table            = 'book_stock';
+    protected $table            = 'literature_stock';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['book_type', 'book_name', 'quantity', 'arrived_date', 'observations'];
+    protected $allowedFields    = ['type', 'name', 'quantity', 'arrived_date', 'observations'];
 
     // Dates
     protected $useTimestamps = false;

@@ -43,25 +43,24 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php 
-                                    
+                                    <?php
+
                                     foreach ($stocklist as $title) {
-                                        
+
                                         $formatDate = new DateTime($title['arrived_date']);
                                         $title['arrived_date'] = $formatDate->format('d-m-Y');
 
                                         echo "
                                         
                                         <tr>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_name'] ."</a></td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['book_type'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['quantity'] ."</td>
-                                            <td><a href=".base_url('/pages/bookTitle?id='.$title['id'])." >". $title['arrived_date'] ."</td>
-                                            <td class='obs-in-table'>". $title['observations'] ."</td>
+                                            <td><a href=" . base_url('/pages/bookTitle?id=' . $title['id']) . " >" . $title['name'] . "</a></td>
+                                            <td><a href=" . base_url('/pages/bookTitle?id=' . $title['id']) . " >" . $title['type'] . "</td>
+                                            <td><a href=" . base_url('/pages/bookTitle?id=' . $title['id']) . " >" . $title['quantity'] . "</td>
+                                            <td><a href=" . base_url('/pages/bookTitle?id=' . $title['id']) . " >" . $title['arrived_date'] . "</td>
+                                            <td class='obs-in-table'>" . $title['observations'] . "</td>
                                         </tr>
                                         
                                         ";
-
                                     }
 
                                     ?>
@@ -113,13 +112,13 @@
                     <div class="form-group">
                         <label>Data de Chegada</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require/>
+                            <input name="arrived_date" type="date" class="form-control datetimepicker-input" data-target="#reservationdate" require />
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Observação</label>
                         <div class="input-group">
-                            <input name="observations" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)"/>
+                            <input name="observations" type="text" class="form-control" placeholder="Pequena observação (Não obrigatório)" />
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">
