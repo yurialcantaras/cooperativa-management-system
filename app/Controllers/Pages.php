@@ -65,7 +65,18 @@ class Pages extends BaseController
             return redirect()->to(base_url('/bookstockcontroller/titlelist'));
         }
 
+        ###### BUILDING PAGE ######
+
         $this->structure['stocklist'] = $data;
+
+        $condition = "date <= '{$closer}' AND date >= '{$farther}'";
+        $result = list_items($model, $condition, null, null);
+
+        $dashboard = dashboard_panel($result, 'kits', 'sum');
+        $dashboard += dashboard_panel($result, 'books', 'sum');
+        $dashboard += dashboard_panel($result, 'jav', 'sum');
+        $dashboard += dashboard_panel($result, 'id', 'total');
+        $this->structure['topDashboard'] = view('adm/dashboard/top.dashboard.php', $dashboard);
 
         session()->set('stocklist', null);
         return view('adm/content/stock', $this->structure);
