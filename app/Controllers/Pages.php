@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\AdminController;
+use App\Models\BookStockModel;
 use App\Models\ReportModel;
 use DateTime;
 
@@ -58,6 +59,8 @@ class Pages extends BaseController
     public function stock()
     {
 
+        $model = new BookStockModel();
+
         $data = session()->get('stocklist');
 
         if (!isset($data)) {
@@ -68,9 +71,7 @@ class Pages extends BaseController
         ###### BUILDING PAGE ######
 
         $this->structure['stocklist'] = $data;
-
-        $condition = "date <= '{$closer}' AND date >= '{$farther}'";
-        $result = list_items($model, $condition, null, null);
+        $result = list_items($model, null, null, null);
 
         $dashboard = dashboard_panel($result, 'kits', 'sum');
         $dashboard += dashboard_panel($result, 'books', 'sum');
