@@ -65,18 +65,17 @@ class Pages extends BaseController
 
         if (!isset($data)) {
 
-            return redirect()->to(base_url('/bookstockcontroller/titlelist'));
+            return redirect()->to(base_url('/BookStockController/titleList'));
         }
 
         ###### BUILDING PAGE ######
 
         $this->structure['stocklist'] = $data;
         $result = list_items($model, null, null, null);
-
-        $dashboard = dashboard_panel($result, 'kits', 'sum');
-        $dashboard += dashboard_panel($result, 'books', 'sum');
-        $dashboard += dashboard_panel($result, 'jav', 'sum');
-        $dashboard += dashboard_panel($result, 'id', 'total');
+        
+        $dashboard = dashboard_panel($result, 'quantity', 'sum');
+        // var_dump($dashboard);
+        // exit;
         $this->structure['topDashboard'] = view('adm/dashboard/top.dashboard.php', $dashboard);
 
         session()->set('stocklist', null);
@@ -92,7 +91,7 @@ class Pages extends BaseController
 
         if (!isset($isDetail)) {
 
-            return redirect()->to(base_url('/bookstockcontroller/titledetail?id=' . $structure['id']));
+            return redirect()->to(base_url('/BookStockController/titleDetail?id=' . $structure['id']));
         }
 
         $this->structure['titleDetails'] = $session->get('titleDetails');
@@ -118,7 +117,7 @@ class Pages extends BaseController
         if ($query) {
 
             session()->set('user', $query);
-            return redirect()->to(base_url('/pages/stock'));
+            return redirect()->to(base_url('/Pages/stock'));
         } else {
 
             # Erro de usuário inexistente

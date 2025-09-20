@@ -11,7 +11,7 @@
                         <div class="small-box bg-info">
                             <div class="inner">
 
-                                <h3><?php echo $kits; ?></h3>
+                                <h3><?php echo 0; //$kits; ?></h3>
 
                                 <p>Kits</p>
                             </div>
@@ -25,7 +25,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3><?php echo $books; ?></h3>
+                                <h3><?php echo 0; //$books; ?></h3>
 
                                 <p>Livros</p>
                             </div>
@@ -39,7 +39,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3><?php echo $jav; ?></h3>
+                                <h3><?php echo 0; //$jav; ?></h3>
 
                                 <p>JAVs</p>
                             </div>
@@ -53,7 +53,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3><?php echo $total; ?></h3>
+                                <h3><?php echo $quantity; ?></h3>
 
                                 <p>Total de Relatórios</p>
                             </div>

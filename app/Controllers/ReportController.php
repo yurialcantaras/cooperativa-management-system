@@ -27,7 +27,7 @@ class ReportController extends BaseController
 
         }
 
-        return redirect()->to(base_url('/pages/report'));
+        return redirect()->to(base_url('/Pages/report'));
 
     }
 

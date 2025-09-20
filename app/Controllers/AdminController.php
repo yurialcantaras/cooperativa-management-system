@@ -29,7 +29,7 @@ class AdminController extends BaseController
                 var_dump($admin->errors());
             }
 
-            return redirect()->to(base_url('/pages/dashboard'));
+            return redirect()->to(base_url('/Pages/dashboard'));
         }
     }
 
@@ -39,13 +39,20 @@ class AdminController extends BaseController
         $admin = new AdministratorsModel();
         $query = $admin->where('email', $data['email'])->where('password', $data['password'])->findAll();
 
-        $login = [
-            'id'    => $query[0]['id'],
-            'name'  => $query[0]['name'],
-            'level' => $query[0]['level'],
-        ];
+        if ($query) {
+            
+            $login = [
+                'id'    => $query[0]['id'],
+                'name'  => $query[0]['name'],
+                'level' => $query[0]['level'],
+            ];
+    
+            return $login;
 
-        return $login;
+        }
+
+        return NULL;
+
     }
 
     public function login()
@@ -60,7 +67,7 @@ class AdminController extends BaseController
             session()->set('user', $query[0]['id']);
             session()->set('permission', $query[0]['permission']);
 
-            return redirect()->to(base_url('/pages/stock'));
+            return redirect()->to(base_url('/Pages/stock'));
         } else {
 
             return redirect()->to(base_url('/'));

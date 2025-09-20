@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.0 
+    volumes: 
+      - database-backup:/var/lib/mysql
+      - ./app/Database/cooperativa_db-backup.sql:/docker-entrypoint-initdb.d/db-cooperativa-backup.sql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    networks:
+      - cooperativa-net
+
+  cooperativa-app:
+    image: php-apache:latest
+    volumes:
+      - .:/var/www/html/
+    networks:
+      - cooperativa-net
+    ports:
+      - "8080:80"
+
+volumes:
+  database-backup:
+
+networks:
+  cooperativa-net:
+    external: true
