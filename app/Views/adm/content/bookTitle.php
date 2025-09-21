@@ -49,7 +49,7 @@
                         </table>
                         <div style="margin-top: 15px;" class="form-group d-flex justify-content-center">
                             <button class="btn btn-warning btn-sm" onclick="newTitle()">Editar</button>
-                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('/bookstockcontroller/titledelete?id=' . $titleDetails['id']); ?>" style="margin-left: 2px;">Excluir</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('/BookStockController/titleDelete?id=' . $titleDetails['id']); ?>" style="margin-left: 2px;">Excluir</a>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -63,7 +63,7 @@
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
-                    <form method="post" action="<?php echo base_url('/bookstockcontroller/titleedit?id=' . $titleDetails['id']); ?>">
+                    <form method="post" action="<?php echo base_url('/BookStockController/titleEdit?id=' . $titleDetails['id']); ?>">
                         <div class="form-check d-flex justify-content-center">
                             <div class="justify-content-center form-check form-check-inline col-sm-3 bg-olive p-2">
                                 <input <?php echo ($titleDetails['type'] == 'Kit') ? "checked" : ""; ?> value="1" type="radio" name="type" class="form-check-input" id="kit-type" style="width: 15px; height: 15px;" require>

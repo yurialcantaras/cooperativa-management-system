@@ -89,7 +89,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="<?= base_url('/bookstockcontroller/newtitle'); ?>">
+            <form method="post" action="<?= base_url('/bookStockController/newTitle'); ?>">
                 <div class="card-body">
                     <div class="form-check d-flex justify-content-center">
                         <div class="col-sm-3"></div>

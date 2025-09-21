@@ -50,7 +50,7 @@
                         </table>
                         <div style="margin-top: 15px;" class="form-group d-flex justify-content-center">
                             <button class="btn btn-warning btn-sm" onclick="newTitle()">Editar</button>
-                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('/bookstockcontroller/titledelete?id=' . $titleDetails); ?>" style="margin-left: 2px;">Excluir</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('/bookStockController/titleDelete?id=' . $titleDetails); ?>" style="margin-left: 2px;">Excluir</a>
                         </div>
                     </div>
                     <!-- /.card-body -->
