@@ -40,8 +40,9 @@ class Pages extends BaseController
             $farther = $range[1];
         }
 
-        $condition = "date <= '{$closer}' AND date >= '{$farther}'";
-        $result = list_items($model, $condition, null, null);
+        // $condition = "date <= '{$closer}' AND date >= '{$farther}'";
+        // $result = list_items($model, $condition, null, null);
+        $result = list_items($model, null, null, null);
 
         ###### BUILDING PAGE ######
 
@@ -51,6 +52,7 @@ class Pages extends BaseController
         $dashboard += dashboard_panel($result, 'books', 'sum');
         $dashboard += dashboard_panel($result, 'jav', 'sum');
         $dashboard += dashboard_panel($result, 'id', 'total');
+
         $this->structure['topDashboard'] = view('adm/dashboard/top.dashboard.php', $dashboard);
 
         return view('adm/content/colportagem', $this->structure);
@@ -74,8 +76,6 @@ class Pages extends BaseController
         $result = list_items($model, null, null, null);
         
         $dashboard = dashboard_panel($result, 'quantity', 'sum');
-        // var_dump($dashboard);
-        // exit;
         $this->structure['topDashboard'] = view('adm/dashboard/top.dashboard.php', $dashboard);
 
         session()->set('stocklist', null);

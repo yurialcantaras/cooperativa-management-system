@@ -206,7 +206,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('/pages/colportagem'); ?>" class="nav-link">
+              <a href="<?php echo base_url('/Pages/colportagem'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>
                   Colportagem
