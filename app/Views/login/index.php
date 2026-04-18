@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +7,8 @@
     <title>Cooperativa</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('tema/plugins/fontawesome-free/css/all.min.css') ?>">
     <!-- icheck bootstrap -->
@@ -60,7 +56,8 @@
                     </div>
                 </form>
                 <p class="mb-0">
-                    <a href="<?php echo base_url('/pages/signin?'); ?>" class="text-center">Register a new membership</a>
+                    <a href="<?php echo base_url('/pages/signin?'); ?>" class="text-center">Register a new
+                        membership</a>
                 </p>
             </div>
             <!-- /.card-body -->

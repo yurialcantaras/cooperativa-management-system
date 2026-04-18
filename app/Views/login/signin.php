@@ -1,13 +1,3 @@
-<?php
-session_status();
-
-// var_dump($_SESSION['permission']);
-// exit;
-
-if (isset($_SESSION['user'])) {
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +7,8 @@ if (isset($_SESSION['user'])) {
   <title>Cooperativa</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url('tema/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- icheck bootstrap -->
@@ -61,7 +52,8 @@ if (isset($_SESSION['user'])) {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input name="confirmPassword" type="password" class="form-control" placeholder="Escreva a Senha">
+            <input name="confirmPassword" type="password" class="form-control"
+              placeholder="Escreva a Senha">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -70,26 +62,29 @@ if (isset($_SESSION['user'])) {
           </div>
           <div class="input-group mb-3">
             <select class="custom-select rounded-0" id="exampleSelectRounded0">
+              <option value='3'>Temporário (24h)</option>
+              <option value='2'>Administrador</option>
+              <option value='1'>Superadministrador</option>
+
+              <!-- Listar todas as funções que podem ser adicionadas no db -->
               <?php
-              
-              if ($_SESSION['permission'] === 1) {
-                
-                echo "
-                  <option value='3'>Temporário (24h)</option>
-                  <option value='2'>Administrador</option>
-                  <option value='1'>Superadministrador</option>
-                ";
 
-              }elseif ($_SESSION['permission'] === 2) {
-                
-                echo "
-                  <option value='3'>Temporário (24h)</option>
-                ";
+              // if ($_SESSION['permission'] === 1) {
 
-              }
-              
+              //   echo "
+              //   <option value='3'>Temporário (24h)</option>
+              //   <option value='2'>Administrador</option>
+              //   <option value='1'>Superadministrador</option>
+              // ";
+              // } elseif ($_SESSION['permission'] === 2) {
+
+              //   echo "
+              //   <option value='3'>Temporário (24h)</option>
+              // ";
+              // }
+
               ?>
-              
+
             </select>
 
             <!-- O campo deve mostrar apenas as opcoes que lhe pertence. -->
@@ -97,7 +92,7 @@ if (isset($_SESSION['user'])) {
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-key"></span>
-              </div> 
+              </div>
             </div>
           </div>
           <div class="row">
@@ -106,7 +101,7 @@ if (isset($_SESSION['user'])) {
               <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
             </div>
             <!-- /.col -->
-          </div>  
+          </div>
         </form>
 
         <a href="<?php echo base_url('/'); ?>">Fazer Login</a>
@@ -125,21 +120,3 @@ if (isset($_SESSION['user'])) {
 </body>
 
 </html>
-
-<?php
-
-} else {
-
-  if (session_status() === 2) {
-
-    session_destroy();
-
-  }
-
-  redirect(base_url('/Pages'));
-
-  // header('Location: '.base_url('/'));
-
-}
-
-?>

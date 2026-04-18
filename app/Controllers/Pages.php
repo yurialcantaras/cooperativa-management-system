@@ -74,7 +74,7 @@ class Pages extends BaseController
 
         $this->structure['stocklist'] = $data;
         $result = list_items($model, null, null, null);
-        
+
         $dashboard = dashboard_panel($result, 'quantity', 'sum');
         $this->structure['topDashboard'] = view('adm/dashboard/top.dashboard.php', $dashboard);
 
